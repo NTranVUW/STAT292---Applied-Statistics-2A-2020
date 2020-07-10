@@ -1,0 +1,127 @@
+---
+title: "Assignment 0"
+author: "STAT 292 Applied Statistics 2A — 300296259"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**1.) A student takes a test consisting of 10 multiple choice questions for which each question has five choices with only one of those being the correct answer. Rather than study, the student decides to randomly select one of the five choices for each question.**
+
+**a.Define a random variable to represent the number of questions on the test that the student answers correctly. What is the distribution of the random variable?**
+
+$Y \sim Bin(10, 0.2)$
+
+Binomial:
+
+  Repeated experiments (10 times)
+  
+  Binary outcome: 1. Correct answer, 2. Incorrect answer
+  
+  Same probability of success for each trial (20%)
+  
+  Assumed to be independent
+
+**b.What is the probability that the student answers fewer than 2 of the 10 questions?**
+
+$P(Y < 2) = P(Y = 0) + P(Y = 1)$
+
+$P(Y = 0) = \frac{n!}{y!(n-y)!}p^y(1-p)^{n-y}$
+
+$P(Y = 0) = \frac{10!}{0!(10-0)!}0.2^0(1-0.2)^{10-0}$
+
+$P(Y = 0) = \frac{10\times9\times...\times2\times1}{1 \times(10\times9\times...\times2\times1)!}\times1\times0.1073741824$
+
+$P(Y = 0) = \frac{3628800}{3628800}\times1\times0.1073741824$
+
+$P(Y = 0) = 0.1073741824$
+
+$P(Y = 1) = \frac{n!}{y!(n-y)!}p^y(1-p)^{n-y}$
+
+$P(Y = 1) = \frac{10!}{1!(10-1)!}0.2^1(1-0.2)^{10-1}$
+
+$P(Y = 1) = \frac{10\times9\times...\times2\times1}{1\times(9\times8\times...\times2\times1)!}\times0.2\times0.8^9$
+
+$P(Y = 1) = \frac{3628800}{362880}\times0.2\times0.134217728$
+
+$P(Y = 1) = 10\times0.2\times0.134217728$
+
+$P(Y = 1) = 10\times0.2\times0.134217728$
+
+$P(Y = 1) = 0.268435456$
+
+$P(Y < 2) = P(Y = 0) + P(Y = 1)$
+
+$P(Y < 2) = 0.1073741824 + 0.268435456$
+
+$P(Y < 2) = 0.3758096384$
+
+**2.) A study by Goodwin et al.(2011) into bee pollination of white clover in New Zealand found that each bee visit to a white clover flower produced an average of 1.24 seeds.Suppose that the number of seeds per bee visit to a white clover flower follows a Poisson distribution.**
+
+**a.Define a random variable to represent the number of seeds produced on a bee visit to a white clover flower. What is the distribution of the random variable?**
+
+$X \sim Pois(1.24)$
+
+Poisson distribution:
+
+  Over a period of time (each visit)
+  Success or failure outcome
+
+
+**b.What is the probability that a bee visit to a white clover flower produces no seeds?**
+
+$P(X = 0) = \frac{\lambda^xe^{-\lambda}}{x!}$
+
+$P(X = 0) = \frac{1\times 2.718^{-1.24}}{0!}$
+
+$P(X = 0) = \frac{1\times0.28942142602}{1}$
+
+$P(X = 0) = 0.28942142602$
+
+**c.What is the probability that a bee visit to a white clover flower produces more than 1 seed?**
+
+$P(X > 1) = 1 - P(X \leq 1) = 1 - (P(X = 0) + P(X = 1))$
+
+$P(X = 0) = 0.28942142602$
+
+$P(X = 1) = \frac{\lambda^xe^{-\lambda}}{x!}$
+
+$P(X = 1) = \frac{1.24^1\times 2.718^{-1.24}}{1!}$
+
+$P(X = 1) = \frac{1.24\times 0.28942142602}{1}$
+
+$P(X = 1) = 0.35888256826$
+
+$P(X > 1) = 1 - P(X \leq 1) = 1 - (P(X = 0) + P(X = 1))$
+
+$P(X > 1) = 1 - P(X \leq 1) = 1 - (0.28942142602 + 0.35888256826)$
+
+$P(X > 1) = 1 - P(X \leq 1) = 1 - 0.64830399428$
+
+$P(X > 1) = 1 - P(X \leq 1) = 0.35169600572$
+
+**3.) Consider the pH level for drinking water for a particular water system. Suppose that the pH level at a particular point in time follows a normal distribution with a mean pH of 7 and a variance of 1.25.**
+
+**a.Define a random variable to represent the pH level of drinking water in the system at a particular point in time. What is the distribution of the random variable?**
+
+$X \sim N(7, 1.25)$
+
+**b.Safe drinking water typically has a pH level in the range of 6 to 8.5. What is the probability that the water is safe to drink at a randomly chosen point in time?**
+
+$P(6 \leq X \leq 8.5) = P(\frac{6-7}{\sqrt{1.25}} \leq Z \leq \frac{8.5-7}{\sqrt{1.25}})$
+
+$P(6 \leq X \leq 8.5) = P(-0.894427191 \leq Z \leq 1.3416407865)$
+
+$P(6 \leq X \leq 8.5) = P(-0.894427191 \leq Z \leq 0) + P(0 \leq Z \leq 1.3416407865)$
+
+$P(6 \leq X \leq 8.5) = P(0 \leq Z \leq 0.894427191) + P(0 \leq Z \leq 1.3416407865)$
+
+$P(6 \leq X \leq 8.5) = 0.894427191 + 1.3416407865$
+
+$P(6 \leq X \leq 8.5) = 0.3133 + 0.4099 = 0.7232$
+
+
+
+
